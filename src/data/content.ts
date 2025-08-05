@@ -13,7 +13,7 @@ export const navigationItems = [
 
 export const contactInfo = {
   hours: 'MON – FRI 8:00 AM TO 9:00 PM',
-  location: 'THILLAI NAGAR, TRICHY',
+  location: 'THILLAI NAGAR, TIRUCHIRAPPALLI, TAMILNADU, INDIA',
   phone: '+91 431 123 4567',
   email: 'info@unifix.com'
 };

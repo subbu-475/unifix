@@ -43,16 +43,16 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 bg-orange-50">
+    <section id="faq" className="py-20 bg-[#F5F8FC]">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16">
-          <p className="text-orange-500 font-semibold text-sm uppercase mb-2 flex items-center justify-center gap-2">
-            <Pin className="w-4 h-4" /> FAQs
+          <p className="text-[#066FAD] font-bold text-sm uppercase mb-2 flex items-center justify-center gap-2">
+            <Pin className="w-5 h-5" /> FAQs
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#041C4B] mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-[#333] max-w-2xl mx-auto font-medium">
             We understand that choosing the right facility management partner is an important decision. To help you make an informed choice, we’ve compiled answers to some of the most common questions our clients ask, from service offerings to support availability and pricing flexibility.
           </p>
         </div>
@@ -63,19 +63,22 @@ const FAQ: React.FC = () => {
             return (
               <div
                 key={index}
-                className={`bg-white rounded-xl shadow-md border transition duration-300 ${isOpen ? 'border-orange-500' : 'border-white'
+                className={`bg-white rounded-xl shadow-md border transition duration-300 ${isOpen ? 'border-[#EE212B]' : 'border-white'
                   }`}
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className={`w-full text-left px-6 py-5 flex justify-between items-center rounded-xl ${isOpen ? 'text-orange-600 font-semibold' : 'text-gray-900 font-semibold'
-                    }`}
+                  className={`w-full text-left px-6 py-5 flex justify-between items-center rounded-xl ${
+                    isOpen
+                      ? 'text-[#EE212B] font-bold'
+                      : 'text-[#041C4B] font-semibold'
+                  }`}
                 >
                   <span>{faq.question}</span>
                   {isOpen ? (
-                    <Minus className="w-5 h-5 text-orange-600" />
+                    <Minus className="w-5 h-5 text-[#EE212B]" />
                   ) : (
-                    <Plus className="w-5 h-5 text-orange-600" />
+                    <Plus className="w-5 h-5 text-[#066FAD]" />
                   )}
                 </button>
 
@@ -83,8 +86,9 @@ const FAQ: React.FC = () => {
                   initial={{ height: 0 }}
                   animate={{ height: isOpen ? 'auto' : 0 }}
                   transition={{ duration: 0.3 }}
-                  className={`px-6 pt-0 text-gray-700 overflow-hidden ${isOpen ? 'pb-6' : 'pb-0'
-                    }`}
+                  className={`px-6 pt-0 text-[#333] overflow-hidden ${
+                    isOpen ? 'pb-6' : 'pb-0'
+                  }`}
                 >
                   <p>{faq.answer}</p>
                 </motion.div>

@@ -31,15 +31,21 @@ const whyCards = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="relative bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1748501749488-4212fa477bba?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
-      <div className="absolute inset-0 bg-black/40"></div>
+    <section
+      className="relative bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1748501749488-4212fa477bba?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+      }}
+    >
+      <div className="absolute inset-0 "></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid md:grid-cols-2 gap-12">
           {/* Left Content */}
           <div className="text-white max-w-xl space-y-6">
             <p className="font-medium text-white inline-flex items-center">
-              <Pin className="w-4 h-4 mr-2 text-orange-400" />
+              <Pin className="w-4 h-4 mr-2 text-[#EE212B]" />
               Why Choose Us
             </p>
             <h2 className="text-4xl md:text-5xl font-bold leading-tight">
@@ -54,7 +60,7 @@ const WhyChooseUs = () => {
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
-              className="mt-6 inline-flex items-center px-6 py-3 rounded-full bg-orange-500 text-white font-semibold shadow-md hover:bg-orange-600 transition"
+              className="mt-6 inline-flex items-center px-6 py-3 rounded-full bg-[#EE212B] text-white font-semibold shadow-md hover:bg-[#c31a23] transition"
             >
               Learn More
               <ArrowUpRight className="ml-2 w-5 h-5" />
@@ -70,20 +76,20 @@ const WhyChooseUs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2, duration: 0.5 }}
-                className="relative bg-white text-slate-800 rounded-xl p-6 shadow-md"
+                className="relative bg-white text-[#041C4B] rounded-xl p-6 shadow-md"
               >
                 {/* Floating Red Badge for the center card */}
                 {index === 1 && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-center px-4 py-2 rounded-lg z-10 shadow-lg">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#EE212B] text-white text-center px-4 py-2 rounded-lg z-10 shadow-lg">
                     <div className="text-sm font-semibold">Award Winner</div>
                   </div>
                 )}
 
-                <div className="mb-4 text-orange-500">
+                <div className="mb-4 text-[#EE212B]">
                   <card.icon className="w-8 h-8" />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{card.title}</h3>
-                <p className="text-sm text-gray-600">{card.description}</p>
+                <p className="text-sm text-gray-600 text-justify">{card.description}</p>
               </motion.div>
             ))}
           </div>

@@ -27,28 +27,28 @@ const Achievements: React.FC = () => {
 
   return (
     <section id="achievements" className="relative py-20 bg-white overflow-hidden">
-      {/* Background Image with Blur */}
+      {/* Background with very light blur */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
-          backgroundImage: `url('https://images.pexels.com/photos/7347538/pexels-photo-7347538.jpeg?_gl=1*1r114wy*_ga*NTkxMzg5MzQwLjE3NTQwNDE5Nzk.*_ga_8JE65Q40S6*czE3NTQyNDA3MDkkbzQkZzEkdDE3NTQyNDM2MjEkajEkbDAkaDA.')`,
-          filter: 'blur(2px)', // VERY light blur
-          opacity: 0.5,         // Subtle visibility
+          backgroundImage: `url('https://images.pexels.com/photos/7347538/pexels-photo-7347538.jpeg')`,
+          // filter: 'blur(1px)',
+          opacity: 0.5,
         }}
       />
+      <div className="absolute inset-0 bg-white/10 backdrop-blur-[0.5px] z-0" />
 
-      <div className="absolute inset-0 bg-white/20 backdrop-blur-[1px] z-0" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           {/* Left Image Section */}
           <div className="relative flex items-end gap-6">
             <img
-              src="https://images.pexels.com/photos/16552856/pexels-photo-16552856.jpeg?_gl=1*j4qonh*_ga*NTkxMzg5MzQwLjE3NTQwNDE5Nzk.*_ga_8JE65Q40S6*czE3NTQyNDA3MDkkbzQkZzEkdDE3NTQyNDEwMDYkajU5JGwwJGgw"
+              src="https://images.pexels.com/photos/16552856/pexels-photo-16552856.jpeg"
               alt="Worker"
               className="rounded-xl w-2/3 h-auto object-cover shadow-xl"
             />
             <img
-              src="https://images.pexels.com/photos/26648949/pexels-photo-26648949.jpeg?_gl=1*1n9cal1*_ga*NTkxMzg5MzQwLjE3NTQwNDE5Nzk.*_ga_8JE65Q40S6*czE3NTQyNDA3MDkkbzQkZzEkdDE3NTQyNDA5NDQkajU5JGwwJGgw"
+              src="https://images.pexels.com/photos/26648949/pexels-photo-26648949.jpeg"
               alt="Roof Top"
               className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-40 h-40 rounded-xl border-4 border-white shadow-lg object-cover"
             />
@@ -56,15 +56,15 @@ const Achievements: React.FC = () => {
 
           {/* Right Content Section */}
           <div>
-            <p className="text-orange-500 font-semibold mb-2 inline-flex items-center">
-              <Award className="w-4 h-4 mr-2" /> Achievement
+            <p className="text-[#EE212B] font-semibold mb-2 inline-flex items-center">
+              <Award className="w-4 h-4 mr-2 text-[#066FAD]" /> Achievement
             </p>
 
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-800 mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-[#041C4B] mb-4 ">
               Built on Trust & Performance
             </h2>
 
-            <p className="text-gray-600 leading-relaxed max-w-xl mb-8">
+            <p className="text-gray-700 leading-relaxed max-w-xl mb-8 text-justify">
               Over the years, we’ve successfully delivered high-quality facility solutions to a diverse portfolio of residential, commercial, and industrial clients. From large-scale HVAC installations to complex electrical and plumbing projects, our commitment to excellence has earned us consistent recognition and client loyalty.
             </p>
 
@@ -76,28 +76,25 @@ const Achievements: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.2 }}
-                  className="bg-white rounded-xl shadow-md p-6 text-center border border-gray-100"
+                  className="bg-white rounded-xl shadow-md p-6 text-center border border-[#066FAD]/20"
                 >
-                  <div className="text-3xl font-bold text-orange-500">
+                  <div className="text-3xl font-bold text-[#EE212B]">
                     <CountUp end={item.value} duration={2} />{item.suffix}
                   </div>
-                  <div className="text-gray-700 text-sm mt-2">{item.label}</div>
+                  <div className="text-[#041C4B] text-sm mt-2">{item.label}</div>
                 </motion.div>
               ))}
             </div>
 
             <motion.button
               whileHover={{ scale: 1.05 }}
-              className="mt-4 inline-flex items-center px-6 py-3 rounded-full bg-orange-500 text-white font-semibold shadow-md hover:bg-orange-600 transition"
+              className="mt-4 inline-flex items-center px-6 py-3 rounded-full bg-[#066FAD] text-white font-semibold shadow-md hover:bg-[#041C4B] transition"
             >
-              Learn More <Award className="ml-2 w-4 h-4" />
+              Learn More <Award className="ml-2 w-4 h-4 text-white" />
             </motion.button>
           </div>
         </div>
       </div>
-
-      {/* Optional light background pattern */}
-      <div className="absolute inset-0 bg-[url('/your-background-tile.jpg')] bg-cover bg-center opacity-10" />
     </section>
   );
 };

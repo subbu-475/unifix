@@ -1,13 +1,11 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { stats } from '../data/content';
 
-const AnimatedCounter: React.FC<{ end: number; suffix: string; duration?: number }> = ({ 
-  end, 
-  suffix, 
-  duration = 2 
+const AnimatedCounter: React.FC<{ end: number; suffix: string; duration?: number }> = ({
+  end,
+  suffix,
+  duration = 2,
 }) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -19,28 +17,27 @@ const AnimatedCounter: React.FC<{ end: number; suffix: string; duration?: number
       const animate = (currentTime: number) => {
         if (!startTime) startTime = currentTime;
         const progress = Math.min((currentTime - startTime) / (duration * 1000), 1);
-        
+
         setCount(Math.floor(progress * end));
-        
-        if (progress < 1) {
-          requestAnimationFrame(animate);
-        }
+
+        if (progress < 1) requestAnimationFrame(animate);
       };
       requestAnimationFrame(animate);
     }
   }, [isInView, end, duration]);
 
   return (
-    <div ref={ref} className="text-4xl font-bold text-white">
-      {count}{suffix}
+    <div ref={ref} className="text-4xl font-bold text-[#EE212B]">
+      {count}
+      {suffix}
     </div>
   );
 };
 
 const Stats: React.FC = () => {
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-600 to-orange-500 relative overflow-hidden">
-      {/* Background Pattern */}
+    <section className="py-20 bg-gradient-to-r from-[#041C4B] to-[#066FAD] relative overflow-hidden">
+      {/* Background Circles */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-32 h-32 border border-white rounded-full"></div>
         <div className="absolute bottom-10 right-10 w-48 h-48 border border-white rounded-full"></div>
@@ -58,8 +55,8 @@ const Stats: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Built on Trust & Performance
           </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            Over the years, we've successfully delivered exceptional facility management 
+          <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+            Over the years, we've successfully delivered exceptional facility management
             services, building lasting relationships with our clients.
           </p>
         </motion.div>
@@ -76,7 +73,7 @@ const Stats: React.FC = () => {
             >
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300">
                 <AnimatedCounter end={stat.number} suffix={stat.suffix} />
-                <div className="text-blue-100 text-lg font-medium mt-2">
+                <div className="text-white/80 text-lg font-medium mt-2">
                   {stat.label}
                 </div>
               </div>
@@ -84,7 +81,7 @@ const Stats: React.FC = () => {
           ))}
         </div>
 
-        {/* Customer Images Grid */}
+        {/* Customer Images */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,14 +89,14 @@ const Stats: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-16 text-center"
         >
-          <p className="text-blue-100 mb-8 text-lg">Trusted by hundreds of satisfied customers</p>
+          <p className="text-white/80 mb-8 text-lg">Trusted by hundreds of satisfied customers</p>
           <div className="flex justify-center items-center space-x-4 flex-wrap gap-4">
             {[
               'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100',
               'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=100',
               'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=100',
               'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100',
-              'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=100'
+              'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=100',
             ].map((image, index) => (
               <motion.img
                 key={index}

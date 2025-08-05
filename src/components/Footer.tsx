@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Settings, Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 import { navigationItems, contactInfo } from '../data/content';
+import unifixImage from '../assets/unifix.png';
 
 const Footer: React.FC = () => {
   const scrollToSection = (href: string) => {
@@ -46,7 +47,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-slate-900 text-white">
+    <footer className="bg-[#041C4B] text-white">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
@@ -59,14 +60,14 @@ const Footer: React.FC = () => {
             className="lg:col-span-1"
           >
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-orange-500 rounded-lg flex items-center justify-center">
-                <Settings className="w-6 h-6 text-white" />
+              <div className="w-24 h-24 bg-gradient-to-r  rounded-lg flex items-center justify-center">
+                <img src={unifixImage} alt="UNIFIX Logo" className="w-20 h-20" />
               </div>
               <span className="text-2xl font-bold">UNIFIX</span>
             </div>
-            
+
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Your trusted partner in smart, efficient facility management. 
+              Your trusted partner in smart, efficient facility management.
               We provide comprehensive solutions for all your maintenance and repair needs.
             </p>
 
@@ -83,9 +84,28 @@ const Footer: React.FC = () => {
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     className="flex items-center text-gray-300 text-sm"
                   >
-                    <IconComponent className="w-4 h-4 mr-3 text-blue-400" />
+                    <IconComponent className="w-4 h-4 mr-3 text-[#066FAD]" />
                     {item.text}
                   </motion.div>
+                );
+              })}
+
+            </div>
+            {/* Social Links */}
+            <div className="flex space-x-4 mt-6">
+              {socialLinks.map((social, index) => {
+                const IconComponent = social.icon;
+                return (
+                  <motion.a
+                    key={index}
+                    href={social.href}
+                    aria-label={social.label}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="w-10 h-10 bg-[#041C4B] hover:bg-gradient-to-r hover:from-[#066FAD] hover:to-[#EE212B] rounded-lg flex items-center justify-center transition-all duration-300 border border-[#133462] hover:border-transparent"
+                  >
+                    <IconComponent className="w-5 h-5" />
+                  </motion.a>
                 );
               })}
             </div>
@@ -98,7 +118,7 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h3 className="text-xl font-bold mb-6 text-gradient bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
+            <h3 className="text-xl font-bold mb-6 text-gradient bg-gradient-to-r from-[#EE212B] to-[#066FAD] bg-clip-text text-transparent">
               Services
             </h3>
             <ul className="space-y-3">
@@ -123,7 +143,7 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-xl font-bold mb-6 text-gradient bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
+            <h3 className="text-xl font-bold mb-6 text-gradient bg-gradient-to-r from-[#EE212B] to-[#066FAD] bg-clip-text text-transparent">
               Company
             </h3>
             <ul className="space-y-3">
@@ -148,10 +168,10 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h3 className="text-xl font-bold mb-6 text-gradient bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
+            <h3 className="text-xl font-bold mb-6 text-gradient bg-gradient-to-r from-[#EE212B] to-[#066FAD] bg-clip-text text-transparent">
               Support
             </h3>
-            
+
             <ul className="space-y-3 mb-6">
               {footerLinks.support.map((link, index) => (
                 <li key={index}>
@@ -166,24 +186,7 @@ const Footer: React.FC = () => {
               ))}
             </ul>
 
-            {/* Social Links */}
-            <div className="flex space-x-4">
-              {socialLinks.map((social, index) => {
-                const IconComponent = social.icon;
-                return (
-                  <motion.a
-                    key={index}
-                    href={social.href}
-                    aria-label={social.label}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="w-10 h-10 bg-slate-800 hover:bg-gradient-to-r hover:from-blue-600 hover:to-orange-500 rounded-lg flex items-center justify-center transition-all duration-300 border border-slate-700 hover:border-transparent"
-                  >
-                    <IconComponent className="w-5 h-5" />
-                  </motion.a>
-                );
-              })}
-            </div>
+
           </motion.div>
         </div>
       </div>
@@ -194,13 +197,13 @@ const Footer: React.FC = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="border-t border-slate-800"
+        className="border-t border-[#133462]"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
             © 2025 UNIFIX. All rights reserved. Built with excellence.
           </p>
-          
+
           <div className="flex space-x-6 text-sm">
             <motion.a
               href="#"

@@ -25,7 +25,6 @@ const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    // Handle form submission here
   };
 
   const contactDetails = [
@@ -67,7 +66,6 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial="initial"
           whileInView="animate"
@@ -77,16 +75,16 @@ const Contact: React.FC = () => {
         >
           <motion.p
             variants={fadeInUp}
-            className="text-blue-600 font-semibold text-lg uppercase tracking-wider mb-4"
+            className="text-[#066FAD] font-semibold text-lg uppercase tracking-wider mb-4"
           >
             Get In Touch
           </motion.p>
           <motion.h2
             variants={fadeInUp}
-            className="text-4xl md:text-5xl font-bold text-slate-800 mb-6"
+            className="text-4xl md:text-5xl font-bold text-[#041C4B] mb-6"
           >
             Ready to Start Your
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500"> Project?</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EE212B] to-[#066FAD]"> Project?</span>
           </motion.h2>
           <motion.p
             variants={fadeInUp}
@@ -97,7 +95,7 @@ const Contact: React.FC = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-12">
-          {/* Contact Information */}
+          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -105,12 +103,12 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-1 space-y-8"
           >
-            <div className="bg-gradient-to-br from-blue-600 to-orange-500 rounded-2xl p-8 text-white">
+            <div className="bg-gradient-to-br from-[#EE212B] to-[#066FAD] rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-              <p className="text-blue-100 mb-8 leading-relaxed">
+              <p className="text-white/80 mb-8 leading-relaxed">
                 Ready to transform your facility management? Our expert team is here to help.
               </p>
-              
+
               <div className="space-y-6">
                 {contactDetails.map((item, index) => {
                   const IconComponent = item.icon;
@@ -123,13 +121,13 @@ const Contact: React.FC = () => {
                       transition={{ duration: 0.4, delay: index * 0.1 }}
                       className="flex items-start space-x-4"
                     >
-                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center flex-shrink-0">
-                        <IconComponent className="w-6 h-6" />
+                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                        <IconComponent className="w-6 h-6 text-white" />
                       </div>
                       <div>
                         <h4 className="font-semibold text-lg">{item.title}</h4>
-                        <p className="text-blue-100">{item.info}</p>
-                        <p className="text-blue-200 text-sm">{item.subInfo}</p>
+                        <p className="text-white/90">{item.info}</p>
+                        <p className="text-white/60 text-sm">{item.subInfo}</p>
                       </div>
                     </motion.div>
                   );
@@ -143,16 +141,16 @@ const Contact: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-red-50 border border-red-200 rounded-2xl p-6"
+              className="bg-[#FFF5F5] border border-[#FBD5D5] rounded-2xl p-6"
             >
-              <h4 className="text-xl font-bold text-red-800 mb-4">Emergency Service</h4>
-              <p className="text-red-600 mb-6">
+              <h4 className="text-xl font-bold text-[#EE212B] mb-4">Emergency Service</h4>
+              <p className="text-[#b91c1c] mb-6">
                 Need immediate assistance? Our emergency team is available 24/7.
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-semibold transition-colors duration-300"
+                className="w-full bg-[#EE212B] hover:bg-[#c71c24] text-white py-3 rounded-lg font-semibold transition-colors duration-300"
               >
                 Call Emergency Line
               </motion.button>
@@ -170,144 +168,96 @@ const Contact: React.FC = () => {
             <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
-                  {/* Name Field */}
-                  <motion.div
-                    className="relative"
-                    animate={{
-                      scale: focusedField === 'name' ? 1.02 : 1
-                    }}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  >
-                    <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-2">
-                      Full Name *
-                    </label>
+                  {/* Name */}
+                  <motion.div className="relative" animate={{ scale: focusedField === 'name' ? 1.02 : 1 }}>
+                    <label className="block text-sm font-semibold text-[#041C4B] mb-2">Full Name *</label>
                     <input
-                      type="text"
-                      id="name"
                       name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
+                      required
                       onFocus={() => setFocusedField('name')}
                       onBlur={() => setFocusedField(null)}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-gray-50 focus:bg-white"
+                      onChange={handleInputChange}
+                      value={formData.name}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#066FAD] transition-all bg-gray-50"
                       placeholder="Enter your full name"
                     />
                   </motion.div>
 
-                  {/* Email Field */}
-                  <motion.div
-                    className="relative"
-                    animate={{
-                      scale: focusedField === 'email' ? 1.02 : 1
-                    }}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  >
-                    <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-2">
-                      Email Address *
-                    </label>
+                  {/* Email */}
+                  <motion.div className="relative" animate={{ scale: focusedField === 'email' ? 1.02 : 1 }}>
+                    <label className="block text-sm font-semibold text-[#041C4B] mb-2">Email Address *</label>
                     <input
-                      type="email"
-                      id="email"
                       name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
+                      type="email"
+                      required
                       onFocus={() => setFocusedField('email')}
                       onBlur={() => setFocusedField(null)}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-gray-50 focus:bg-white"
+                      onChange={handleInputChange}
+                      value={formData.email}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#066FAD] transition-all bg-gray-50"
                       placeholder="Enter your email"
                     />
                   </motion.div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
-                  {/* Phone Field */}
-                  <motion.div
-                    className="relative"
-                    animate={{
-                      scale: focusedField === 'phone' ? 1.02 : 1
-                    }}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  >
-                    <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-2">
-                      Phone Number
-                    </label>
+                  {/* Phone */}
+                  <motion.div className="relative" animate={{ scale: focusedField === 'phone' ? 1.02 : 1 }}>
+                    <label className="block text-sm font-semibold text-[#041C4B] mb-2">Phone Number</label>
                     <input
-                      type="tel"
-                      id="phone"
                       name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
                       onFocus={() => setFocusedField('phone')}
                       onBlur={() => setFocusedField(null)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-gray-50 focus:bg-white"
+                      onChange={handleInputChange}
+                      value={formData.phone}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#066FAD] transition-all bg-gray-50"
                       placeholder="Enter your phone number"
                     />
                   </motion.div>
 
-                  {/* Service Field */}
-                  <motion.div
-                    className="relative"
-                    animate={{
-                      scale: focusedField === 'service' ? 1.02 : 1
-                    }}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  >
-                    <label htmlFor="service" className="block text-sm font-semibold text-slate-700 mb-2">
-                      Service Needed
-                    </label>
+                  {/* Service */}
+                  <motion.div className="relative" animate={{ scale: focusedField === 'service' ? 1.02 : 1 }}>
+                    <label className="block text-sm font-semibold text-[#041C4B] mb-2">Service Needed</label>
                     <select
-                      id="service"
                       name="service"
-                      value={formData.service}
-                      onChange={handleInputChange}
                       onFocus={() => setFocusedField('service')}
                       onBlur={() => setFocusedField(null)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-gray-50 focus:bg-white"
+                      onChange={handleInputChange}
+                      value={formData.service}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#066FAD] transition-all bg-gray-50"
                     >
                       <option value="">Select a service</option>
-                      {services.map((service, index) => (
-                        <option key={index} value={service}>{service}</option>
+                      {services.map((s, i) => (
+                        <option key={i} value={s}>{s}</option>
                       ))}
                     </select>
                   </motion.div>
                 </div>
 
-                {/* Message Field */}
-                <motion.div
-                  className="relative"
-                  animate={{
-                    scale: focusedField === 'message' ? 1.02 : 1
-                  }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                >
-                  <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-2">
-                    Message *
-                  </label>
+                {/* Message */}
+                <motion.div className="relative" animate={{ scale: focusedField === 'message' ? 1.02 : 1 }}>
+                  <label className="block text-sm font-semibold text-[#041C4B] mb-2">Message *</label>
                   <textarea
-                    id="message"
                     name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    onFocus={() => setFocusedField('message')}
-                    onBlur={() => setFocusedField(null)}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-gray-50 focus:bg-white resize-none"
+                    onFocus={() => setFocusedField('message')}
+                    onBlur={() => setFocusedField(null)}
+                    onChange={handleInputChange}
+                    value={formData.message}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#066FAD] transition-all bg-gray-50 resize-none"
                     placeholder="Describe your facility management needs..."
                   />
                 </motion.div>
 
-                {/* Submit Button */}
+                {/* Submit */}
                 <motion.button
                   type="submit"
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-blue-600 to-orange-500 hover:from-blue-700 hover:to-orange-600 text-white py-4 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-[#EE212B] to-[#066FAD] hover:from-[#d91e29] hover:to-[#045d95] text-white py-4 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl transition-all"
                 >
-                  Send Message
-                  <Send className="w-5 h-5" />
+                  Send Message <Send className="w-5 h-5" />
                 </motion.button>
               </form>
             </div>
