@@ -45,49 +45,26 @@ const Team: React.FC = () => {
           whileInView="animate"
           viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid md:grid-cols-3 gap-8 justify-items-center"
         >
           {team.map((member) => (
             <motion.div
               key={member.id}
               variants={fadeInUp}
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100"
-              whileHover={{ y: -8 }}
+              className="group relative bg-white rounded-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 w-64 h-64 flex flex-col items-center justify-center"
+              whileHover={{ scale: 1.05 }}
             >
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative w-full h-full">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute top-4 right-4 bg-[#066FAD] text-white px-3 py-1 rounded-full text-sm font-semibold">
-                  {member.experience}
-                </div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
-                  <p className="text-[#A9D5EF] font-medium">{member.role}</p>
+                <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-3 text-center">
+                  <h3 className="text-lg font-bold text-white">{member.name}</h3>
+                  <p className="text-sm text-gray-300">{member.role}</p>
                 </div>
               </div>
-
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center">
-                    <Award className="w-5 h-5 text-[#EE212B] mr-2" />
-                    <span className="text-sm font-medium text-gray-600">Certified</span>
-                  </div>
-                  <div className="flex items-center">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                </div>
-
-                <p className="text-gray-600 font-medium mb-2">Specialization:</p>
-                <p className="text-[#041C4B] font-semibold">{member.specialization}</p>
-              </div>
-
-              <div className="absolute inset-0 bg-gradient-to-br from-[#066FAD]/10 to-[#EE212B]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             </motion.div>
           ))}
         </motion.div>

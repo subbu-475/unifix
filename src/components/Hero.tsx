@@ -5,7 +5,7 @@ import HeroImage from '../assets/hero.jpg'; // Adjust the path as necessary
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative bg-[#041C4B] text-white">
+    <section className="relative bg-[#041C4B] text-white" id='home'>
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img

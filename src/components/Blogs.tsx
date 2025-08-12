@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowUpRight, Phone, CalendarCheck } from 'lucide-react';
+import { ArrowUpRight, Phone, CalendarCheck, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const blogs = [
   {
@@ -37,7 +38,7 @@ const BlogSection = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
           <div>
-            <p className="text-[#EE212B] font-bold text-sm flex items-center gap-2">
+            <p className="text-[#EE212B] font-bold text-base uppercase flex items-center gap-2">
               <CalendarCheck className="w-4 h-4" />
               Industry Insights
             </p>
@@ -59,7 +60,10 @@ const BlogSection = () => {
         {/* Blog Cards */}
         <div className="grid md:grid-cols-3 gap-8">
           {blogs.map((post) => (
-            <div key={post.id} className="bg-white rounded-2xl shadow-md overflow-hidden">
+            <div
+              key={post.id}
+              className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col"
+            >
               <div className="relative">
                 <img
                   src={post.image}
@@ -71,16 +75,21 @@ const BlogSection = () => {
                   <div className="text-xs">{post.month}</div>
                 </div>
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <h3 className="font-bold text-[#041C4B] text-lg mb-2">{post.title}</h3>
-                <p className="text-[#041C4B]/60 text-sm mb-4">{post.description}</p>
-                <button className="inline-flex items-center text-white bg-[#066FAD] hover:bg-[#055e95] px-4 py-2 rounded-full text-sm font-semibold transition">
-                  Learn more
-                </button>
+                <p className="text-[#041C4B]/60 text-sm mb-4 flex-1">{post.description}</p>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-[#EE212B] hover:bg-[#C51B24] text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2 shadow-lg transition mx-auto"
+                >
+                  Learn More
+                  <ChevronRight size={18} />
+                </motion.button>
               </div>
             </div>
           ))}
         </div>
+
       </div>
 
       {/* CTA Section */}

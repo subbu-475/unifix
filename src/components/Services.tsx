@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import {
+  Briefcase,
   Plug,
   ShowerHead,
   ThermometerSnowflake,
@@ -26,7 +27,7 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className="bg-white pt-0 pb-20 relative overflow-hidden">
+    <section className="bg-white pt-0 pb-20 relative overflow-hidden" id='services'>
       {/* Background Image Section */}
       <div
         className="w-full h-[500px] bg-cover bg-center"
@@ -44,8 +45,9 @@ const ServicesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="text-[#EE212B] font-semibold uppercase text-center"
+          className="text-[#EE212B] font-semibold uppercase text-center flex items-center justify-center gap-2"
         >
+          <Briefcase className="w-4 h-4 text-[#EE212B]" />
           Services
         </motion.h5>
 
@@ -70,11 +72,11 @@ const ServicesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-b-4 border-transparent hover:border-[#EE212B]"
+                className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-b-4 border-transparent hover:border-[#EE212B] flex flex-col"
               >
                 <Icon className="w-10 h-10 text-[#066FAD] mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-center text-[#041C4B]">{service.title}</h3>
-                <p className="text-sm text-gray-600 text-center mt-2 text-justify">
+                <p className="text-sm text-gray-600 text-center mt-2 text-justify flex-grow">
                   {service.desc}
                 </p>
                 <div className="mt-4 text-center">
@@ -89,6 +91,7 @@ const ServicesSection = () => {
             );
           })}
         </div>
+
       </div>
     </section>
   );

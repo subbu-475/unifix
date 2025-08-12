@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
-import { Award, Star, Users } from 'lucide-react';
+import { Award, ChevronRight, Star, Users } from 'lucide-react';
 
 const Achievements: React.FC = () => {
   const stats = [
@@ -56,8 +56,8 @@ const Achievements: React.FC = () => {
 
           {/* Right Content Section */}
           <div>
-            <p className="text-[#EE212B] font-semibold mb-2 inline-flex items-center">
-              <Award className="w-4 h-4 mr-2 text-[#066FAD]" /> Achievement
+            <p className="text-[#EE212B] font-semibold mb-2 inline-flex items-center uppercase">
+              <Award className="w-4 h-4 mr-2 text-[#EE212B]" /> ACHIEVEMENT
             </p>
 
             <h2 className="text-4xl sm:text-5xl font-bold text-[#041C4B] mb-4 ">
@@ -88,9 +88,10 @@ const Achievements: React.FC = () => {
 
             <motion.button
               whileHover={{ scale: 1.05 }}
-              className="mt-4 inline-flex items-center px-6 py-3 rounded-full bg-[#066FAD] text-white font-semibold shadow-md hover:bg-[#041C4B] transition"
+              className="bg-[#EE212B] hover:bg-[#C51B24] text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 shadow-lg transition"
             >
-              Learn More <Award className="ml-2 w-4 h-4 text-white" />
+              Learn More
+              <ChevronRight size={18} />
             </motion.button>
           </div>
         </div>

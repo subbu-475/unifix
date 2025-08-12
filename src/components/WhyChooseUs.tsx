@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Rocket, Wrench, Clock, ShieldCheck, ArrowUpRight, Pin } from 'lucide-react';
+import { Rocket, Wrench, Clock, ShieldCheck, ArrowRight, Pin, Trophy, Award, ThumbsUp, ChevronRight } from 'lucide-react';
 
 const whyCards = [
   {
@@ -35,22 +35,22 @@ const WhyChooseUs = () => {
       className="relative bg-cover bg-center"
       style={{
         backgroundImage:
-          "url('https://images.unsplash.com/photo-1748501749488-4212fa477bba?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+          "url('https://images.unsplash.com/photo-1748501749488-4212fa477bba?q=80&w=1332&auto=format&fit=crop')",
       }}
     >
-      <div className="absolute inset-0 "></div>
+      <div className="absolute inset-0"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid md:grid-cols-2 gap-12">
           {/* Left Content */}
           <div className="text-white max-w-xl space-y-6">
-            <p className="font-medium text-white inline-flex items-center">
-              <Pin className="w-4 h-4 mr-2 text-[#EE212B]" />
+            <p className="font-medium inline-flex items-center text-white">
+              <ThumbsUp className="w-4 h-4 mr-2 text-[#EE212B]" />
               Why Choose Us
             </p>
             <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-              Why You Should <br />
-              <span className="text-white">Choose Us</span>
+              <span className="text-white">Why You Should</span> <br />
+              <span className="text-[#EE212B]">Choose Us</span>
             </h2>
             <h6 className="font-bold leading-tight text-white">
               Your Property. Our Priority.
@@ -60,39 +60,45 @@ const WhyChooseUs = () => {
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
-              className="mt-6 inline-flex items-center px-6 py-3 rounded-full bg-[#EE212B] text-white font-semibold shadow-md hover:bg-[#c31a23] transition"
+              className="bg-[#EE212B] hover:bg-[#C51B24] text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 shadow-lg transition"
             >
               Learn More
-              <ArrowUpRight className="ml-2 w-5 h-5" />
+              <ChevronRight size={18} />
             </motion.button>
           </div>
 
           {/* Right Grid Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {whyCards.map((card, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2, duration: 0.5 }}
-                className="relative bg-white text-[#041C4B] rounded-xl p-6 shadow-md"
-              >
-                {/* Floating Red Badge for the center card */}
-                {index === 1 && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#EE212B] text-white text-center px-4 py-2 rounded-lg z-10 shadow-lg">
-                    <div className="text-sm font-semibold">Award Winner</div>
-                  </div>
-                )}
+          <div className="relative">
+            {/* Centered Award Winner badge */}
+            <div
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+             bg-[#EE212B] text-white px-8 py-4 rounded-lg shadow-lg z-20 flex items-center gap-3 mt-2"
+            >
+              <Award className="w-7 h-7" />
+              <span className="text-base font-semibold tracking-wide">Award Winner</span>
+            </div>
 
-                <div className="mb-4 text-[#EE212B]">
-                  <card.icon className="w-8 h-8" />
-                </div>
-                <h3 className="text-lg font-bold mb-2">{card.title}</h3>
-                <p className="text-sm text-gray-600 text-justify">{card.description}</p>
-              </motion.div>
-            ))}
+            {/* Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {whyCards.map((card, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2, duration: 0.5 }}
+                  className="relative bg-white text-[#041C4B] rounded-xl p-6 shadow-md"
+                >
+                  <div className="mb-4 text-[#EE212B]">
+                    <card.icon className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-lg font-bold mb-2">{card.title}</h3>
+                  <p className="text-sm text-gray-600 text-justify">{card.description}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
+
         </div>
       </div>
     </section>

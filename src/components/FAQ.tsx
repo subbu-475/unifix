@@ -46,8 +46,8 @@ const FAQ: React.FC = () => {
     <section id="faq" className="py-20 bg-[#F5F8FC]">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16">
-          <p className="text-[#066FAD] font-bold text-sm uppercase mb-2 flex items-center justify-center gap-2">
-            <Pin className="w-5 h-5" /> FAQs
+          <p className="text-[#EE212B] font-bold text-md uppercase mb-2 flex items-center justify-center gap-2">
+            <Pin className="w-6 h-6" /> FAQs
           </p>
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#041C4B] mb-4">
             Frequently Asked Questions

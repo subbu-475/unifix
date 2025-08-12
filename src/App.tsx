@@ -42,7 +42,7 @@ function App() {
         <Achievements />
         <Team />
         <Testimonials />
-        <Pricing />
+        {/* <Pricing /> */}
 
         {/* FAQ Section */}
         <FAQ />

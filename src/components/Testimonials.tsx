@@ -24,9 +24,9 @@ const Testimonials: React.FC = () => {
   return (
     <section
       className="relative bg-cover bg-center py-24"
-      style={{ backgroundImage: `url(${testiMoinialImage})` }}
+      style={{ backgroundImage: `url(https://images.pexels.com/photos/9242887/pexels-photo-9242887.jpeg)` }}
     >
-      <div className="absolute inset-0 bg-[#041C4B]/50"></div>
+      <div className="absolute inset-0 bg-[#041C4B]/20"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -50,7 +50,7 @@ const Testimonials: React.FC = () => {
           {visibleTestimonials.map((item, i) => (
             <div
               key={i}
-              className="bg-white text-gray-800 p-8 rounded-xl shadow-lg relative overflow-hidden border-t-4 border-[#066FAD]"
+              className="bg-white text-gray-800 p-8 rounded-xl shadow-lg relative overflow-hidden border-t-4 border-[#EE212B]"
             >
               {/* Star Rating */}
               <div className="flex mb-4">

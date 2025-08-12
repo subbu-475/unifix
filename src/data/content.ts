@@ -1,13 +1,14 @@
 export const navigationItems = [
   { name: 'Home', href: '#home' },
-  { name: 'Services', href: '#services' },
+  
   { name: 'About Us', href: '#about' },
+  { name: 'Services', href: '#services' },
   { name: 'Projects', href: '#projects' },
   { name: 'Achievements', href: '#achievements' },
-  { name: 'FAQ', href: '#faq' },
-  { name: 'Pricing', href: '#pricing' },
-  { name: 'Blog', href: '#blogs' },
   { name: 'Team', href: '#team' },
+  // { name: 'Pricing', href: '#pricing' },
+   { name: 'FAQ', href: '#faq' },
+  { name: 'Blog', href: '#blogs' },
   { name: 'Contact', href: '#contact' }
 ];
 
@@ -140,33 +141,26 @@ export const team = [
     name: 'Rajesh Kumar',
     role: 'Senior Technician',
     specialization: 'HVAC Systems',
-    image: 'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://images.pexels.com/photos/2753381/pexels-photo-2753381.jpeg',
     experience: '8+ Years'
   },
   {
     id: 2,
-    name: 'Priya Sharma',
+    name: 'Harini Priya',
     role: 'Electrical Supervisor',
     specialization: 'Electrical Systems',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://images.pexels.com/photos/31112236/pexels-photo-31112236.jpeg',
     experience: '6+ Years'
   },
   {
     id: 3,
-    name: 'Arjun Patel',
+    name: 'Arjun Kumar',
     role: 'Plumbing Specialist',
     specialization: 'Plumbing Solutions',
-    image: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://images.pexels.com/photos/6476365/pexels-photo-6476365.jpeg',
     experience: '10+ Years'
   },
-  {
-    id: 4,
-    name: 'Meera Reddy',
-    role: 'Project Manager',
-    specialization: 'Facility Management',
-    image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400',
-    experience: '12+ Years'
-  }
+
 ];
 
 export const testimonials = [
