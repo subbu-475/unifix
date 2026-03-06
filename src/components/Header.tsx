@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   Menu,
@@ -16,6 +17,9 @@ import unifixImage from '../assets/unifix.png';
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -23,13 +27,52 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
+  // Track which section is currently visible using IntersectionObserver
+  useEffect(() => {
+    const sectionIds = navigationItems.map((item) => item.href.replace('#', ''));
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setActiveSection(id);
+              }
+            });
+          },
+          { rootMargin: '-30% 0px -60% 0px', threshold: 0 }
+        );
+        observer.observe(element);
+        observers.push(observer);
+      }
+    });
+
+    return () => observers.forEach((obs) => obs.disconnect());
+  }, []);
+
+  const scrollToSection = useCallback((href: string) => {
+    if (location.pathname !== '/') {
+      // Navigate to home page first, then scroll after a small delay
+      navigate('/');
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 300);
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
-  };
+    setIsMobileMenuOpen(false);
+  }, [location.pathname, navigate]);
+
+  const isActive = (href: string) => activeSection === href.replace('#', '');
 
   return (
     <>
@@ -48,14 +91,22 @@ const Header: React.FC = () => {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, idx) => (
+              {[
+                { Icon: Facebook, href: 'https://www.facebook.com/share/16XY5opqyf/', label: 'Facebook' },
+                { Icon: Twitter, href: 'https://x.com/unifix_facility', label: 'Twitter' },
+                { Icon: Instagram, href: 'https://www.instagram.com/unifix__facility/', label: 'Instagram' },
+                { Icon: Linkedin, href: 'https://www.linkedin.com/company/unifix-facility-management/', label: 'LinkedIn' }
+              ].map((social, idx) => (
                 <motion.a
                   key={idx}
-                  href="#"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
                   whileHover={{ scale: 1.1 }}
                   className="text-gray-300 hover:text-[#066FAD] transition-colors"
                 >
-                  <Icon className="w-4 h-4" />
+                  <social.Icon className="w-4 h-4" />
                 </motion.a>
               ))}
             </div>
@@ -69,8 +120,8 @@ const Header: React.FC = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-lg mt-0'
-            : 'bg-transparent sm:mt-12 mt-0'
+          ? 'bg-white/95 backdrop-blur-md shadow-lg mt-0'
+          : 'bg-transparent sm:mt-12 mt-0'
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,12 +149,23 @@ const Header: React.FC = () => {
                 <motion.button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className={`font-medium transition-colors hover:text-[#EE212B] ${isScrolled ? 'text-[#041C4B]' : 'text-white/90'
+                  className={`relative font-medium transition-colors pb-1 ${isActive(item.href)
+                    ? 'text-[#EE212B]'
+                    : isScrolled
+                      ? 'text-[#041C4B] hover:text-[#EE212B]'
+                      : 'text-white/90 hover:text-[#EE212B]'
                     }`}
                   whileHover={{ y: -2 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                 >
                   {item.name}
+                  {isActive(item.href) && (
+                    <motion.div
+                      layoutId="activeNavUnderline"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#EE212B] rounded-full"
+                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                    />
+                  )}
                 </motion.button>
               ))}
               <motion.button
@@ -144,7 +206,10 @@ const Header: React.FC = () => {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left text-[#041C4B] hover:text-[#EE212B] font-medium transition-colors py-2"
+                  className={`block w-full text-left font-medium transition-colors py-2 ${isActive(item.href)
+                    ? 'text-[#EE212B] border-l-4 border-[#EE212B] pl-3'
+                    : 'text-[#041C4B] hover:text-[#EE212B]'
+                    }`}
                 >
                   {item.name}
                 </button>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ArrowUpRight, Phone, CalendarCheck, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -33,6 +34,9 @@ const blogs = [
 ];
 
 const BlogSection = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   return (
     <section className="bg-white py-16" id="blogs">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -50,7 +54,13 @@ const BlogSection = () => {
             <p className="text-sm text-[#041C4B]/70 max-w-md text-center md:text-left">
               Stay updated with expert advice and real-world insights to make informed decisions about your property.
             </p>
-            <button className="inline-flex items-center gap-1 text-white bg-[#066FAD] hover:bg-[#055e95] px-4 py-1.5 rounded-full font-semibold text-sm whitespace-nowrap transition">
+            <button
+              onClick={() => {
+                navigate('/blog/1');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="inline-flex items-center gap-1 text-white bg-[#066FAD] hover:bg-[#055e95] px-4 py-1.5 rounded-full font-semibold text-sm whitespace-nowrap transition"
+            >
               View All
               <ArrowUpRight className="w-4 h-4" />
             </button>
@@ -79,8 +89,12 @@ const BlogSection = () => {
                 <h3 className="font-bold text-[#041C4B] text-lg mb-2">{post.title}</h3>
                 <p className="text-[#041C4B]/60 text-sm mb-4 flex-1">{post.description}</p>
                 <motion.button
+                  onClick={() => {
+                    navigate(`/blog/${post.id}`);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
                   whileHover={{ scale: 1.05 }}
-                  className="bg-[#EE212B] hover:bg-[#C51B24] text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2 shadow-lg transition mx-auto"
+                  className="bg-[#EE212B] hover:bg-[#C51B24] text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2 shadow-lg transition mx-auto cursor-pointer"
                 >
                   Learn More
                   <ChevronRight size={18} />
@@ -104,14 +118,38 @@ const BlogSection = () => {
             Facility Management is here to help.
           </p>
           <div className="flex flex-wrap gap-4">
-            <button className="inline-flex items-center gap-2 bg-white text-[#041C4B] px-5 py-2 rounded-full font-semibold hover:bg-gray-100 transition">
+            <button
+              onClick={() => {
+                if (location.pathname !== '/') {
+                  navigate('/');
+                  setTimeout(() => {
+                    const contact = document.getElementById('contact');
+                    if (contact) contact.scrollIntoView({ behavior: 'smooth' });
+                  }, 300);
+                } else {
+                  const contact = document.getElementById('contact');
+                  if (contact) contact.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="inline-flex items-center gap-2 bg-white text-[#041C4B] px-5 py-2 rounded-full font-semibold hover:bg-gray-100 transition"
+            >
               <CalendarCheck className="w-4 h-4" />
               Book Appointment
             </button>
-            <button className="inline-flex items-center gap-2 border border-white px-5 py-2 rounded-full font-semibold hover:bg-white hover:text-[#041C4B] transition">
+            <a
+              href="tel:+919566632336"
+              className="inline-flex items-center gap-2 border border-white px-5 py-2 rounded-full font-semibold hover:bg-white hover:text-[#041C4B] transition"
+            >
               <Phone className="w-4 h-4" />
-              +91 431 123 4567
-            </button>
+              +91 9566632336
+            </a>
+            <a
+              href="tel:+918925775111"
+              className="inline-flex items-center gap-2 border border-white px-5 py-2 rounded-full font-semibold hover:bg-white hover:text-[#041C4B] transition"
+            >
+              <Phone className="w-4 h-4" />
+              +91 89257 75111
+            </a>
           </div>
         </div>
         <img

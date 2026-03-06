@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
@@ -15,19 +16,9 @@ import Footer from './components/Footer';
 import FAQ from './components/FAQ';
 import Pricing from './components/Pricing';
 import BlogSection from './components/Blogs';
-function App() {
-  useEffect(() => {
-    // Smooth scrolling for the entire app
-    document.documentElement.style.scrollBehavior = 'smooth';
+import BlogArticle from './pages/BlogArticle';
 
-    // Update page title
-    document.title = 'UNIFIX - Professional Facility Management Services';
-
-    return () => {
-      document.documentElement.style.scrollBehavior = 'auto';
-    };
-  }, []);
-
+function HomePage() {
   return (
     <div className="App">
       <Header />
@@ -53,6 +44,29 @@ function App() {
       </main>
       <Footer />
     </div>
+  );
+}
+
+function App() {
+  useEffect(() => {
+    // Smooth scrolling for the entire app
+    document.documentElement.style.scrollBehavior = 'smooth';
+
+    // Update page title
+    document.title = 'UNIFIX - Professional Facility Management Services';
+
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
+  }, []);
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/blog/:id" element={<BlogArticle />} />
+      </Routes>
+    </Router>
   );
 }
 

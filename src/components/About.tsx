@@ -53,7 +53,7 @@ const About = () => {
           </div>
 
           <p className="text-gray-600 text-base sm:text-lg leading-relaxed text-justify">
-            We specialize in <span className="text-[#041C4B] font-medium">plumbing, air conditioning</span>, and <span className="text-[#041C4B] font-medium">electrical services</span>, offering reliable and responsive solutions for <span className="text-[#041C4B] font-medium">residential, commercial</span>, and <span className="text-[#041C4B] font-medium">industrial clients</span>. From homes and offices to large-scale industrial facilities, we keep your essential systems running smoothly — so you don’t have to worry.
+            We specialize in <span className="text-[#041C4B] font-medium">Plumbing, Air conditioning</span>, and <span className="text-[#041C4B] font-medium">Electrical services</span>, offering reliable and responsive solutions for <span className="text-[#041C4B] font-medium">Residential, Commercial</span>, and <span className="text-[#041C4B] font-medium">Industrial clients</span>. From homes and offices to large-scale industrial facilities, we keep your essential systems running smoothly — so you don’t have to worry.
           </p>
 
           <p className="text-gray-600 text-base sm:text-lg text-justify">
@@ -106,15 +106,22 @@ const About = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <motion.button
+            <motion.a
+              href="tel:+919566632336"
               whileHover={{ scale: 1.05 }}
               className="bg-[#066FAD] hover:bg-[#055C94] text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 shadow-lg transition"
             >
               <PhoneCall size={18} />
               Call Now
-            </motion.button>
+            </motion.a>
 
             <motion.button
+              onClick={() => {
+                const servicesSection = document.getElementById('services');
+                if (servicesSection) {
+                  servicesSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               whileHover={{ scale: 1.05 }}
               className="bg-[#EE212B] hover:bg-[#C51B24] text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 shadow-lg transition"
             >

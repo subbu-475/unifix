@@ -59,6 +59,12 @@ const WhyChooseUs = () => {
               We go beyond just maintenance — we deliver peace of mind. From residential complexes and commercial spaces to industrial facilities, our expert team provides reliable, end-to-end facility management that’s efficient, cost-effective, and built on trust.
             </p>
             <motion.button
+              onClick={() => {
+                const testimonials = document.getElementById('testimonials');
+                if (testimonials) {
+                  testimonials.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               whileHover={{ scale: 1.05 }}
               className="bg-[#EE212B] hover:bg-[#C51B24] text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 shadow-lg transition"
             >

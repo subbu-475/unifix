@@ -23,6 +23,7 @@ const Testimonials: React.FC = () => {
 
   return (
     <section
+      id="testimonials"
       className="relative bg-cover bg-center py-24"
       style={{ backgroundImage: `url(https://images.pexels.com/photos/9242887/pexels-photo-9242887.jpeg)` }}
     >

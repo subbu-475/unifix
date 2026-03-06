@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
               Book An Appointment
             </button>
             <a
-              href="tel:+91 4311234567" // Replace with your number
+              href="tel:+919566632336"
               className="bg-gradient-to-r from-[#EE212B] to-[#066FAD] hover:opacity-90 text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2"
             >
               <PhoneCall size={18} />Call Us Now
@@ -113,9 +113,12 @@ const Hero: React.FC = () => {
               <div>
                 <select className="w-full border border-gray-300 rounded-md p-2 text-sm text-gray-500" defaultValue="">
                   <option value="" disabled>Select Service</option>
-                  <option>HVAC</option>
+                  <option>HVAC - Air Conditioning</option>
                   <option>Electrical</option>
                   <option>Plumbing</option>
+                  <option>General Maintenance</option>
+                  <option>Emergency Service</option>
+                  <option>Consultation</option>
                 </select>
               </div>
 

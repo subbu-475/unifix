@@ -49,6 +49,7 @@ const Projects: React.FC = () => {
             <motion.div
               key={project.id}
               variants={fadeInUp}
+              data-category={project.category}
               className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100"
               whileHover={{ y: -8 }}
             >
@@ -62,11 +63,10 @@ const Projects: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
 
                 {/* Status Badge */}
-                <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-semibold ${
-                  project.status === 'Completed' 
-                    ? 'bg-green-500 text-white' 
+                <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-semibold ${project.status === 'Completed'
+                    ? 'bg-green-500 text-white'
                     : 'bg-[#EE212B] text-white'
-                }`}>
+                  }`}>
                   {project.status}
                 </div>
 

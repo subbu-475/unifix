@@ -1,21 +1,27 @@
+import Salman from '../assets/MOHAMED SALMAN B.jpeg';
+import Varis from '../assets/S.MOHAMED VARIS.jpeg';
+import customer1 from '../assets/customer1.png';
+import customer3 from '../assets/customer3.png';
+import customer5 from '../assets/customer5.png';
+
 export const navigationItems = [
   { name: 'Home', href: '#home' },
-  
+
   { name: 'About Us', href: '#about' },
   { name: 'Services', href: '#services' },
   { name: 'Projects', href: '#projects' },
   { name: 'Achievements', href: '#achievements' },
   { name: 'Team', href: '#team' },
   // { name: 'Pricing', href: '#pricing' },
-   { name: 'FAQ', href: '#faq' },
+  { name: 'FAQ', href: '#faq' },
   { name: 'Blog', href: '#blogs' },
   { name: 'Contact', href: '#contact' }
 ];
 
 export const contactInfo = {
-  hours: 'MON – FRI 8:00 AM TO 9:00 PM',
-  location: 'THILLAI NAGAR, TIRUCHIRAPPALLI, TAMILNADU, INDIA',
-  phone: '+91 431 123 4567',
+  hours: 'MON – SAT 8:00 AM TO 9:00 PM',
+  location: 'C-70,2nd Floor, 4th Cross, Thillai Nagar(West), Tiruchirappalli, Tamil Nadu 620018',
+  phone: '+91 9566632336 / +91 89257 75111',
   email: 'info@unifix.com'
 };
 
@@ -138,18 +144,18 @@ export const projects = [
 export const team = [
   {
     id: 1,
-    name: 'Rajesh Kumar',
-    role: 'Senior Technician',
+    name: 'Mohamed Varis S',
+    role: 'HVAC & MEP Manager',
     specialization: 'HVAC Systems',
-    image: 'https://images.pexels.com/photos/2753381/pexels-photo-2753381.jpeg',
+    image: Salman,
     experience: '8+ Years'
   },
   {
     id: 2,
-    name: 'Harini Priya',
-    role: 'Electrical Supervisor',
+    name: 'Mohamed Salman B',
+    role: 'MEP Engineer',
     specialization: 'Electrical Systems',
-    image: 'https://images.pexels.com/photos/31112236/pexels-photo-31112236.jpeg',
+    image: Varis,
     experience: '6+ Years'
   },
   {
@@ -169,15 +175,15 @@ export const testimonials = [
     name: 'Suresh Babu',
     role: 'Property Manager',
     message: 'UNIFIX has been our trusted partner for facility management. Their professional approach and quality service have exceeded our expectations consistently.',
-    avatar: 'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=400',
+    avatar: customer1,
     rating: 5
   },
   {
     id: 2,
-    name: 'Lakshmi Devi',
+    name: 'Lakshmi Krishna',
     role: 'Homeowner',
     message: 'Excellent service quality and very responsive team. They completed our HVAC installation on time and within budget. Highly recommended!',
-    avatar: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400',
+    avatar: customer3,
     rating: 5
   },
   {
@@ -185,7 +191,7 @@ export const testimonials = [
     name: 'Vikram Singh',
     role: 'Commercial Client',
     message: 'Professional, reliable, and efficient. UNIFIX handled our complete electrical upgrade seamlessly. Their 24/7 support is truly valuable.',
-    avatar: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=400',
+    avatar: customer5,
     rating: 5
   }
 ];

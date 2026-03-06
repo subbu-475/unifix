@@ -11,23 +11,52 @@ const services = [
   {
     title: 'HVAC – Air Conditioning',
     icon: ThermometerSnowflake,
-    desc: 'We provide specialized HVAC and air conditioning solutions designed to keep your spaces comfortable, energy-efficient, and operating smoothly all year round. Whether it’s a high-rise commercial building, an industrial facility, or a residential complex, our expert team delivers end-to-end HVAC services tailored to your property’s unique needs.',
+    category: 'HVAC',
+    desc: "We provide specialized HVAC and air conditioning solutions designed to keep your spaces comfortable, energy-efficient, and operating smoothly all year round. Whether it's a high-rise commercial building, an industrial facility, or a residential complex, our expert team delivers end-to-end HVAC services tailored to your property's unique needs.",
   },
   {
     title: 'Electrical',
     icon: Plug,
+    category: 'Electrical',
     desc: "We provide comprehensive electrical solutions as part of our integrated facility management services, ensuring your property remains safe, efficient, and fully operational. From routine maintenance to complex electrical upgrades, our certified electricians deliver precision-driven service for residential towers, commercial buildings, industrial plants, and more.",
   },
   {
     title: 'Plumbing',
     icon: ShowerHead,
+    category: 'Plumbing',
     desc: "We deliver expert plumbing services as a key part of our integrated facility management solutions. From minor repairs to full system overhauls, we ensure safe, efficient, and uninterrupted water systems across commercial, residential, and industrial properties.",
   },
 ];
 
 const ServicesSection = () => {
+
+  const scrollToProject = (category: string) => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+
+      // After scrolling, highlight the matching project card
+      setTimeout(() => {
+        const projectCards = projectsSection.querySelectorAll('[data-category]');
+        projectCards.forEach((card) => {
+          const el = card as HTMLElement;
+          if (el.getAttribute('data-category') === category) {
+            el.style.transition = 'box-shadow 0.3s ease, transform 0.3s ease';
+            el.style.boxShadow = '0 0 0 3px #EE212B, 0 20px 40px rgba(238, 33, 43, 0.2)';
+            el.style.transform = 'scale(1.02)';
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => {
+              el.style.boxShadow = '';
+              el.style.transform = '';
+            }, 2000);
+          }
+        });
+      }, 800);
+    }
+  };
+
   return (
-    <section className="bg-white pt-0 pb-20 relative overflow-hidden" id='services'>
+    <section className="bg-white pt-0 pb-20 relative overflow-hidden" id="services">
       {/* Background Image Section */}
       <div
         className="w-full h-[500px] bg-cover bg-center"
@@ -35,7 +64,7 @@ const ServicesSection = () => {
           backgroundImage: `url(${serviceImage})`,
         }}
       >
-        <div className="absolute inset-0 " />
+        <div className="absolute inset-0" />
       </div>
 
       {/* Text Content */}
@@ -80,18 +109,17 @@ const ServicesSection = () => {
                   {service.desc}
                 </p>
                 <div className="mt-4 text-center">
-                  <a
-                    href="#"
-                    className="text-[#EE212B] text-sm font-medium inline-flex items-center hover:underline"
+                  <button
+                    onClick={() => scrollToProject(service.category)}
+                    className="text-[#EE212B] text-sm font-medium inline-flex items-center hover:underline cursor-pointer"
                   >
-                    Read More <span className="ml-1">➝</span>
-                  </a>
+                    Read More <span className="ml-1">&#10141;</span>
+                  </button>
                 </div>
               </motion.div>
             );
           })}
         </div>
-
       </div>
     </section>
   );

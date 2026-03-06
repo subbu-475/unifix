@@ -1,6 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { stats } from '../data/content';
+import customer1 from '../assets/customer1.png';
+import customer2 from '../assets/customer2.png';
+import customer3 from '../assets/customer3.png';
+import customer4 from '../assets/customer4.png';
+import customer5 from '../assets/customer5.png';
 
 const AnimatedCounter: React.FC<{ end: number; suffix: string; duration?: number }> = ({
   end,
@@ -91,13 +96,7 @@ const Stats: React.FC = () => {
         >
           <p className="text-white/80 mb-8 text-lg">Trusted by hundreds of satisfied customers</p>
           <div className="flex justify-center items-center space-x-4 flex-wrap gap-4">
-            {[
-              'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100',
-              'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=100',
-              'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=100',
-              'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100',
-              'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=100',
-            ].map((image, index) => (
+            {[customer1, customer2, customer3, customer4, customer5].map((image, index) => (
               <motion.img
                 key={index}
                 src={image}
