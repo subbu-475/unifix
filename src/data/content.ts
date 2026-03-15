@@ -150,7 +150,7 @@ export const team = [
     name: 'Mohamed Salman B',
     role: 'MEP Engineer',
     specialization: 'Electrical Systems',
-    image: Varis,
+    image: Salman,
     experience: '6+ Years'
   },
   {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, Headphones } from 'lucide-react';
 import { contactInfo } from '../data/content';
 import unifixImage from '../assets/unifix.png';
 
@@ -42,7 +42,8 @@ const Footer: React.FC = () => {
 
   const contactDetails = [
     { icon: Phone, text: contactInfo.phone },
-    { icon: Mail, text: 'info@unifix.com' },
+    { icon: Headphones, text: contactInfo.customerCare },
+    { icon: Mail, text: contactInfo.email },
     { icon: MapPin, text: contactInfo.location }
   ];
 
