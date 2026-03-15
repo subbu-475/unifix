@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
 
   const contactDetails = [
     { icon: Phone, text: contactInfo.phone },
-    { icon: Mail, text: contactInfo.email },
+    { icon: Mail, text: 'info@unifix.com' },
     { icon: MapPin, text: contactInfo.location }
   ];
 

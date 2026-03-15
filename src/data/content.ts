@@ -1,5 +1,7 @@
 import Salman from '../assets/MOHAMED SALMAN B.jpeg';
 import Varis from '../assets/S.MOHAMED VARIS.jpeg';
+import Dinesh from '../assets/Dinesh.jpg';
+import Kaja from '../assets/Kaja.jpg';
 import customer1 from '../assets/customer1.png';
 import customer3 from '../assets/customer3.png';
 import customer5 from '../assets/customer5.png';
@@ -21,8 +23,9 @@ export const navigationItems = [
 export const contactInfo = {
   hours: 'MON – SAT 8:00 AM TO 9:00 PM',
   location: 'C-70,2nd Floor, 4th Cross, Thillai Nagar(West), Tiruchirappalli, Tamil Nadu 620018',
-  phone: '+91 9566632336 / +91 89257 75111',
-  email: 'info@unifix.com'
+  phone: '+91\u00A09566632336 / +91\u00A089257\u00A075111',
+  customerCare: '+91\u00A099940\u00A067776',
+  email: 'enquiry@unifixfm.com'
 };
 
 export const stats = [
@@ -144,14 +147,6 @@ export const projects = [
 export const team = [
   {
     id: 1,
-    name: 'Mohamed Varis S',
-    role: 'HVAC & MEP Manager',
-    specialization: 'HVAC Systems',
-    image: Salman,
-    experience: '8+ Years'
-  },
-  {
-    id: 2,
     name: 'Mohamed Salman B',
     role: 'MEP Engineer',
     specialization: 'Electrical Systems',
@@ -159,11 +154,20 @@ export const team = [
     experience: '6+ Years'
   },
   {
+    id: 2,
+    name: 'Dinesh R',
+    role: 'GET – MEP Designing and Draughting',
+    specialization: 'HVAC Systems',
+    image: Dinesh,
+    experience: '8+ Years'
+  },
+
+  {
     id: 3,
-    name: 'Arjun Kumar',
-    role: 'Plumbing Specialist',
+    name: 'Mohamed Kaja Nowfal H',
+    role: 'MEP Operator',
     specialization: 'Plumbing Solutions',
-    image: 'https://images.pexels.com/photos/6476365/pexels-photo-6476365.jpeg',
+    image: Kaja,
     experience: '10+ Years'
   },
 
@@ -181,7 +185,7 @@ export const testimonials = [
   {
     id: 2,
     name: 'Lakshmi Krishna',
-    role: 'Homeowner',
+    role: 'Household Manager',
     message: 'Excellent service quality and very responsive team. They completed our HVAC installation on time and within budget. Highly recommended!',
     avatar: customer3,
     rating: 5

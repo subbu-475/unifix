@@ -61,7 +61,7 @@ const Team: React.FC = () => {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-3 text-center">
-                  <h3 className="text-lg font-bold text-white">{member.name}</h3>
+                  <h3 className="text-md font-bold text-white">{member.name}</h3>
                   <p className="text-sm text-gray-300">{member.role}</p>
                 </div>
               </div>

@@ -107,7 +107,7 @@ const About = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <motion.a
-              href="tel:+919566632336"
+              href="tel:+918925775111"
               whileHover={{ scale: 1.05 }}
               className="bg-[#066FAD] hover:bg-[#055C94] text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 shadow-lg transition"
             >

@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
               Book An Appointment
             </button>
             <a
-              href="tel:+919566632336"
+              href="tel:+918925775111"
               className="bg-gradient-to-r from-[#EE212B] to-[#066FAD] hover:opacity-90 text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2"
             >
               <PhoneCall size={18} />Call Us Now

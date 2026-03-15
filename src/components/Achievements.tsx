@@ -47,11 +47,11 @@ const Achievements: React.FC = () => {
               alt="Worker"
               className="rounded-xl w-2/3 h-auto object-cover shadow-xl"
             />
-            <img
+            {/* <img
               src="https://images.pexels.com/photos/26648949/pexels-photo-26648949.jpeg"
               alt="Roof Top"
               className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-40 h-40 rounded-xl border-4 border-white shadow-lg object-cover"
-            />
+            /> */}
           </div>
 
           {/* Right Content Section */}

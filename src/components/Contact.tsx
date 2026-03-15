@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Send, Phone, Mail, MapPin, Clock, Headphones } from 'lucide-react';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 import { contactInfo } from '../data/content';
 
@@ -35,6 +35,12 @@ const Contact: React.FC = () => {
       subInfo: 'Available 24/7 for emergencies'
     },
     {
+      icon: Headphones,
+      title: 'Customer Care',
+      info: contactInfo.customerCare,
+      subInfo: 'Support & Enquiries'
+    },
+    {
       icon: Mail,
       title: 'Email',
       info: contactInfo.email,
@@ -55,7 +61,7 @@ const Contact: React.FC = () => {
   ];
 
   const services = [
-    'HVAC Services',
+    'HVAC - Air Conditioning',
     'Electrical Services',
     'Plumbing Solutions',
     'General Maintenance',
@@ -119,15 +125,15 @@ const Contact: React.FC = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
-                      className="flex items-start space-x-4"
+                      className="flex items-center gap-4"
                     >
-                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                      <div className="w-12 h-12 shrink-0 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
                         <IconComponent className="w-6 h-6 text-white" />
                       </div>
-                      <div>
+                      <div className="flex-1">
                         <h4 className="font-semibold text-lg">{item.title}</h4>
                         <p className="text-white/90">{item.info}</p>
-                        <p className="text-white/60 text-sm">{item.subInfo}</p>
+                        <p className="text-white/60 text-sm mt-0.5">{item.subInfo}</p>
                       </div>
                     </motion.div>
                   );
@@ -147,13 +153,14 @@ const Contact: React.FC = () => {
               <p className="text-[#b91c1c] mb-6">
                 Need immediate assistance? Our emergency team is available 24/7.
               </p>
-              <motion.button
+              <motion.a
+                href="tel:+919566632336"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full bg-[#EE212B] hover:bg-[#c71c24] text-white py-3 rounded-lg font-semibold transition-colors duration-300"
+                className="w-full block text-center bg-[#EE212B] hover:bg-[#c71c24] text-white py-3 rounded-lg font-semibold transition-colors duration-300"
               >
                 Call Emergency Line
-              </motion.button>
+              </motion.a>
             </motion.div>
           </motion.div>
 

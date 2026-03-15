@@ -92,10 +92,9 @@ const Header: React.FC = () => {
             </div>
             <div className="flex items-center space-x-4">
               {[
-                { Icon: Facebook, href: 'https://www.facebook.com/share/16XY5opqyf/', label: 'Facebook' },
-                { Icon: Twitter, href: 'https://x.com/unifix_facility', label: 'Twitter' },
-                { Icon: Instagram, href: 'https://www.instagram.com/unifix__facility/', label: 'Instagram' },
-                { Icon: Linkedin, href: 'https://www.linkedin.com/company/unifix-facility-management/', label: 'LinkedIn' }
+                { Icon: Facebook, href: 'https://www.facebook.com/unifixfm', label: 'Facebook' },
+                { Icon: Instagram, href: 'https://www.instagram.com/unifix_mep?igsh=OTBuMHQxMzFuanpz', label: 'Instagram' },
+                { Icon: Linkedin, href: 'https://www.linkedin.com/company/unifix-facility-management/about/', label: 'LinkedIn' }
               ].map((social, idx) => (
                 <motion.a
                   key={idx}
