@@ -25,7 +25,7 @@ export const contactInfo = {
   location: 'C-70,2nd Floor, 4th Cross, Thillai Nagar(West), Tiruchirappalli, Tamil Nadu 620018',
   phone: '+91\u00A09566632336 / +91\u00A089257\u00A075111',
   customerCare: '+91\u00A099940\u00A067776',
-  email: 'enquiry@unifixfm.com'
+  email: 'info@unifixfm.com'
 };
 
 export const stats = [

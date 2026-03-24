@@ -34,10 +34,10 @@ const Footer: React.FC = () => {
   };
 
   const socialLinks = [
-    { icon: Facebook, href: 'https://www.facebook.com/share/16XY5opqyf/', label: 'Facebook' },
-    { icon: Twitter, href: 'https://x.com/unifix_facility', label: 'Twitter' },
-    { icon: Instagram, href: 'https://www.instagram.com/unifix__facility/', label: 'Instagram' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/company/unifix-facility-management/', label: 'LinkedIn' }
+    { icon: Facebook, href: 'https://www.facebook.com/unifixfm', label: 'Facebook' },
+
+    { icon: Instagram, href: 'https://www.instagram.com/unifix_mep?igsh=OTBuMHQxMzFuanpz', label: 'Instagram' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/unifix-facility-management/about/', label: 'LinkedIn' }
   ];
 
   const contactDetails = [
