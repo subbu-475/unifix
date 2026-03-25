@@ -1,18 +1,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { PhoneCall, Calendar, ChevronRight } from 'lucide-react';
-import HeroImage from '../assets/hero.jpg'; // Adjust the path as necessary
+import HeroImage from '../assets/hero.jpg';
+
+const scrollToQuote = () => {
+  // Scroll to the contact section
+  const contactEl = document.getElementById('contact');
+  if (contactEl) {
+    contactEl.scrollIntoView({ behavior: 'smooth' });
+  }
+  // Dispatch a custom event so Contact.tsx can switch to the Quote tab
+  window.dispatchEvent(new CustomEvent('open-quote-tab'));
+};
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative bg-[#041C4B] text-white" id='home'>
+    <section className="relative bg-[#041C4B] text-white" id="home">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={HeroImage}
-          alt="Facility"
-          className="w-full h-full object-cover"
-        />
+        <img src={HeroImage} alt="Facility" className="w-full h-full object-cover" />
         <div className="absolute inset-0 " />
       </div>
 
@@ -58,14 +64,14 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
           >
-            <button className="bg-gradient-to-r from-[#EE212B] to-[#066FAD] hover:opacity-90 text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2"
+            <button
+              className="bg-gradient-to-r from-[#EE212B] to-[#066FAD] hover:opacity-90 text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2"
               onClick={() => {
-                const formElement = document.getElementById("contact");
+                const formElement = document.getElementById('contact');
                 if (formElement) {
-                  formElement.scrollIntoView({ behavior: "smooth" });
+                  formElement.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-
             >
               <Calendar size={18} />
               Book An Appointment
@@ -79,8 +85,8 @@ const Hero: React.FC = () => {
           </motion.div>
         </div>
 
+        {/* Right: Quote Form — clicking/focusing any field navigates to the full quote form */}
         <div className="flex justify-end">
-          {/* Right: Quote Form */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -97,21 +103,48 @@ const Hero: React.FC = () => {
 
             <h3 className="text-xl font-semibold mb-2 text-center">Request A Free Quote</h3>
 
-            <form className="space-y-3">
-              <div>
-                <input className="w-full border border-gray-300 rounded-md p-2 text-sm" placeholder="Your Name" required />
-              </div>
+            {/* Overlay: clicking anywhere on the form navigates to the quote section */}
+            <div className="space-y-3 relative">
+              {/* Invisible click-capture overlay */}
+              <div
+                className="absolute inset-0 z-10 cursor-pointer"
+                onClick={scrollToQuote}
+                title="Fill out the full quote form below"
+              />
 
               <div>
-                <input className="w-full border border-gray-300 rounded-md p-2 text-sm" placeholder="Email Address*" type="email" required />
+                <input
+                  readOnly
+                  onFocus={scrollToQuote}
+                  className="w-full border border-gray-300 rounded-md p-2 text-sm cursor-pointer focus:outline-none focus:border-[#066FAD]"
+                  placeholder="Your Name"
+                />
               </div>
-
               <div>
-                <input className="w-full border border-gray-300 rounded-md p-2 text-sm" placeholder="Phone Number*" type="tel" required />
+                <input
+                  readOnly
+                  onFocus={scrollToQuote}
+                  className="w-full border border-gray-300 rounded-md p-2 text-sm cursor-pointer focus:outline-none focus:border-[#066FAD]"
+                  placeholder="Email Address*"
+                  type="email"
+                />
               </div>
-
               <div>
-                <select className="w-full border border-gray-300 rounded-md p-2 text-sm text-gray-500" defaultValue="">
+                <input
+                  readOnly
+                  onFocus={scrollToQuote}
+                  className="w-full border border-gray-300 rounded-md p-2 text-sm cursor-pointer focus:outline-none focus:border-[#066FAD]"
+                  placeholder="Phone Number*"
+                  type="tel"
+                />
+              </div>
+              <div>
+                <select
+                  onFocus={scrollToQuote}
+                  onChange={scrollToQuote}
+                  className="w-full border border-gray-300 rounded-md p-2 text-sm text-gray-500 cursor-pointer focus:outline-none focus:border-[#066FAD]"
+                  defaultValue=""
+                >
                   <option value="" disabled>Select Service</option>
                   <option>HVAC - Air Conditioning</option>
                   <option>Electrical</option>
@@ -122,15 +155,17 @@ const Hero: React.FC = () => {
                 </select>
               </div>
 
-              <button className="bg-gradient-to-r from-[#EE212B] to-[#066FAD] hover:opacity-90 text-white w-full py-2 rounded-md flex items-center justify-center gap-2">
+              <button
+                type="button"
+                onClick={scrollToQuote}
+                className="bg-gradient-to-r from-[#EE212B] to-[#066FAD] hover:opacity-90 text-white w-full py-2 rounded-md flex items-center justify-center gap-2 relative z-20"
+              >
                 Submit <ChevronRight size={16} />
               </button>
-            </form>
+            </div>
           </motion.div>
         </div>
       </div>
-
-
     </section>
   );
 };
